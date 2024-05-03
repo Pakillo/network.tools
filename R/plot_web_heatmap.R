@@ -1,7 +1,7 @@
 #' Plot bipartite interaction web as a heatmap
 #'
 #' @param df A data frame with Presence/Absence or Abundance data for species
-#' or interactions (e.g. as produced by `expand_allint()`).
+#' or interactions (e.g. as produced by `expand_unobs()`).
 #' @param xvar character. Name of the variable to be used for x-axis.
 #' @param yvar character. Name of the variable to be used for y-axis.
 #' @param zvar character. Name of the variable containing presence/absence
