@@ -16,9 +16,12 @@ knitr::opts_chunk$set(
 # network.tools
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/Pakillo/network.tools/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Pakillo/network.tools/actions/workflows/R-CMD-check.yaml)
+[![HitCount](https://hits.dwyl.com/Pakillo/network.tools.svg?style=flat-square)](http://hits.dwyl.com/Pakillo/network.tools)
+[![HitCount](https://hits.dwyl.com/Pakillo/network.tools.svg?style=flat-square&show=unique)](http://hits.dwyl.com/Pakillo/network.tools)
 <!-- badges: end -->
 
-The goal of network.tools is to ...
+Tools to work with bipartite networks.
 
 ## Installation
 
@@ -29,12 +32,43 @@ You can install the development version of network.tools from [GitHub](https://g
 devtools::install_github("Pakillo/network.tools")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+```{r }
+library(network.tools)
+```
 
-```{r example}
-# library(network.tools)
-## basic example code
+### Visualise bipartite network as heatmap
+
+```{r }
+data(web)
+plot_web_heatmap(web)
+```
+
+Binarize the network (make it qualitative):
+
+```{r}
+plot_web_heatmap(web, binarize = TRUE)
+```
+
+The output is a ggplot object that can be further modified:
+
+```{r}
+plot_web_heatmap(web) + viridis::scale_fill_viridis()
+```
+
+
+### Transform interaction data from long to wide format
+
+```{r}
+long2wide(web)
+```
+
+
+### Transform interaction data from wide to long format
+
+```{r}
+mat <- long2wide(web)
+wide2long(mat)
 ```
 
