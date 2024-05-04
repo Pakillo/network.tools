@@ -16,5 +16,6 @@ Depends:
 Imports:
     dplyr,
     ggplot2,
+    gtools,
     tidyr
 LazyData: true

@@ -22,7 +22,7 @@ expand_unobs(
 \item{int.var}{character. Name of the column representing interaction presence
 or frequency.}
 
-\item{fill.value.}{Value to use in \code{int.var} for unobserved interactions.}
+\item{fill.value}{Value to use in \code{int.var} for unobserved interactions.}
 }
 \value{
 A data frame
@@ -32,6 +32,6 @@ Expand interaction dataset to include zeroes (unobserved interactions)
 }
 \examples{
 data(web)
-df <- web[sample(1:nrow(web), size = 90), ]
+df <- web[sample(1:nrow(web), size = 30), ]
 df.expand <- expand_unobs(df)
 }

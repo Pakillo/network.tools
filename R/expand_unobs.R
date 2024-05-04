@@ -2,13 +2,13 @@
 #' Expand interaction dataset to include zeroes (unobserved interactions)
 #'
 #' @inheritParams plot_web_heatmap
-#' @param fill.value. Value to use in `int.var` for unobserved interactions.
+#' @param fill.value Value to use in `int.var` for unobserved interactions.
 #'
 #' @return A data frame
 #' @export
 #' @examples
 #' data(web)
-#' df <- web[sample(1:nrow(web), size = 90), ]
+#' df <- web[sample(1:nrow(web), size = 30), ]
 #' df.expand <- expand_unobs(df)
 
 expand_unobs <- function(df = NULL,
