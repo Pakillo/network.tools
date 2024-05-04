@@ -1,13 +1,12 @@
 #' Plot bipartite interaction web as a heatmap
 #'
-#' @param df A data frame with Presence/Absence or Abundance data for species
-#' or interactions (e.g. as produced by `expand_unobs()`).
-#' @param xvar character. Name of the variable to be used for x-axis.
-#' @param yvar character. Name of the variable to be used for y-axis.
-#' @param zvar character. Name of the variable containing presence/absence
-#' or abundance data, to be used to colour the matrix cells.
-#' @param binarize Logical. Discretize zvar into two categories? (Default is FALSE).
-#' @param nested Logical. If TRUE (the default), sort rows and columns by
+#' @param df A data frame with interaction presence or frequency data
+#' @param plant.var character. Name of the column representing plants.
+#' @param animal.var character. Name of the column representing animals.
+#' @param int.var character. Name of the column representing interaction presence
+#' or frequency.
+#' @param binarize Logical. Discretize int.var into two categories? (Default is FALSE).
+#' @param sort Logical. If TRUE (the default), sort rows and columns by
 #' prevalence to show nestedness.
 #'
 #' @return A ggplot object.
@@ -17,19 +16,19 @@
 #' @examples
 #' data(web)
 #' plot_web_heatmap(web)
-#' plot_web_heatmap(binarize = TRUE)
-#' plot_web_heatmap(binarize = TRUE, nested = FALSE)
+#' plot_web_heatmap(web, binarize = TRUE)
+#' plot_web_heatmap(web, binarize = TRUE, sort = FALSE)
 #'
 plot_web_heatmap <- function(df,
-                             xvar = "Animal",
-                             yvar = "Plant",
-                             zvar = "Visits",
+                             plant.var = "Plant",
+                             animal.var = "Animal",
+                             int.var = "Visits",
                              binarize = FALSE,
-                             nested = TRUE) {
+                             sort = TRUE) {
 
-  df$xvar <- df[[xvar]]
-  df$yvar <- df[[yvar]]
-  df$zvar <- df[[zvar]]
+  df$xvar <- df[[animal.var]]
+  df$yvar <- df[[plant.var]]
+  df$zvar <- df[[int.var]]
 
   df <- df |>
     group_by(xvar, yvar) |>
@@ -41,7 +40,7 @@ plot_web_heatmap <- function(df,
 
   ## Reorder alphabetically
 
-  if (!isTRUE(nested)) {
+  if (!isTRUE(sort)) {
 
     df$xvar <- factor(df$xvar, levels = gtools::mixedsort(unique(df$xvar)))
     df$yvar <- factor(df$yvar, levels = rev(gtools::mixedsort(unique(df$yvar))))
@@ -50,7 +49,7 @@ plot_web_heatmap <- function(df,
 
   ## Reorder rows by prevalence (to show nestedness)
 
-  if (isTRUE(nested)) {
+  if (isTRUE(sort)) {
 
     ## Sort rows by prevalence
     df2 <- df %>%
@@ -73,15 +72,15 @@ plot_web_heatmap <- function(df,
 
   if (isTRUE(binarize)) df <- mutate(df, values = factor(values))
 
-  names(df) <- c(xvar, yvar, zvar)
+  names(df) <- c(animal.var, plant.var, int.var)
 
 
-  gg <- ggplot(df, aes(x = df[[xvar]], y = df[[yvar]])) +
-    geom_tile(aes(x = df[[xvar]], fill = df[[zvar]])) +
-    #scale_fill_viridis() +
+  gg <- ggplot(df, aes(x = df[[animal.var]], y = df[[plant.var]])) +
+    geom_tile(aes(x = df[[animal.var]], fill = df[[int.var]])) +
+    # scale_fill_viridis() +
     theme(axis.text.x = element_text(angle = 90),
           axis.text = element_text(size = 8)) +
-    labs(x = xvar, y = yvar, fill = zvar)
+    labs(x = animal.var, y = plant.var, fill = int.var)
 
   if (isTRUE(binarize)) {
     gg <- gg + scale_fill_manual(values = c("grey99", "grey30")) +
