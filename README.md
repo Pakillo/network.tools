@@ -49,6 +49,8 @@ The output is a ggplot object that can be further modified:
 
 ``` r
 plot_web_heatmap(web) + viridis::scale_fill_viridis()
+#> Scale for fill is already present.
+#> Adding another scale for fill, which will replace the existing scale.
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />

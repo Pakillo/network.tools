@@ -10,7 +10,9 @@ plot_web_heatmap(
   animal.var = "Animal",
   int.var = "Visits",
   binarize = FALSE,
-  sort = TRUE
+  sort = TRUE,
+  zero.na = TRUE,
+  na.colour = "white"
 )
 }
 \arguments{
@@ -27,6 +29,10 @@ or frequency.}
 
 \item{sort}{Logical. If TRUE, sort rows and columns by
 prevalence to show nestedness.}
+
+\item{zero.na}{Logical. Show zeros as NA?}
+
+\item{na.colour}{Colour to be used for NA.}
 }
 \value{
 A ggplot object.
@@ -37,7 +43,8 @@ Plot bipartite interaction web as a heatmap
 \examples{
 data(web)
 plot_web_heatmap(web)
+plot_web_heatmap(web, zero.na = FALSE)
+plot_web_heatmap(web, sort = FALSE)
 plot_web_heatmap(web, binarize = TRUE)
-plot_web_heatmap(web, binarize = TRUE, sort = FALSE)
 
 }

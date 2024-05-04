@@ -8,6 +8,8 @@
 #' @param binarize Logical. Discretize int.var into two categories? (Default is FALSE).
 #' @param sort Logical. If TRUE, sort rows and columns by
 #' prevalence to show nestedness.
+#' @param zero.na Logical. Show zeros as NA?
+#' @param na.colour Colour to be used for NA.
 #'
 #' @return A ggplot object.
 #' @export
@@ -16,15 +18,18 @@
 #' @examples
 #' data(web)
 #' plot_web_heatmap(web)
+#' plot_web_heatmap(web, zero.na = FALSE)
+#' plot_web_heatmap(web, sort = FALSE)
 #' plot_web_heatmap(web, binarize = TRUE)
-#' plot_web_heatmap(web, binarize = TRUE, sort = FALSE)
 #'
 plot_web_heatmap <- function(df,
                              plant.var = "Plant",
                              animal.var = "Animal",
                              int.var = "Visits",
                              binarize = FALSE,
-                             sort = TRUE) {
+                             sort = TRUE,
+                             zero.na = TRUE,
+                             na.colour = "white") {
 
   df$xvar <- df[[animal.var]]
   df$yvar <- df[[plant.var]]
@@ -70,10 +75,20 @@ plot_web_heatmap <- function(df,
 
   }
 
-  if (isTRUE(binarize)) df <- mutate(df, values = factor(values))
+
+  ## Zero as NA
+
+  if (isTRUE(zero.na)) {
+    if (!isTRUE(binarize)) {
+      df <- mutate(df, values = ifelse(values == 0, NA, values))
+    }
+  }
+
+  if (isTRUE(binarize)) {
+    df <- mutate(df, values = factor(values, levels = sort(unique(values))))
+  }
 
   names(df) <- c(animal.var, plant.var, int.var)
-
 
   gg <- ggplot(df, aes(x = df[[animal.var]], y = df[[plant.var]])) +
     geom_tile(aes(x = df[[animal.var]], fill = df[[int.var]])) +
@@ -83,8 +98,13 @@ plot_web_heatmap <- function(df,
     labs(x = animal.var, y = plant.var, fill = int.var)
 
   if (isTRUE(binarize)) {
-    gg <- gg + scale_fill_manual(values = c("grey99", "grey30")) +
+    gg <- gg +
+      scale_fill_manual(values = c("0" = "grey99", "1" = "grey30"),
+                        na.value = na.colour) +
       theme(legend.position = "none")
+  } else {
+    gg <- gg +
+      scale_fill_continuous(na.value = na.colour)
   }
 
   gg + coord_equal()
