@@ -54,7 +54,9 @@
 <span>  animal.var <span class="op">=</span> <span class="st">"Animal"</span>,</span>
 <span>  int.var <span class="op">=</span> <span class="st">"Visits"</span>,</span>
 <span>  binarize <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  sort <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>  sort <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  zero.na <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  na.colour <span class="op">=</span> <span class="st">"white"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -85,6 +87,14 @@ or frequency.</p></dd>
 <dd><p>Logical. If TRUE, sort rows and columns by
 prevalence to show nestedness.</p></dd>
 
+
+<dt>zero.na</dt>
+<dd><p>Logical. Show zeros as NA?</p></dd>
+
+
+<dt>na.colour</dt>
+<dd><p>Colour to be used for NA.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -98,10 +108,12 @@ prevalence to show nestedness.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">plot_web_heatmap</span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_web_heatmap-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu">plot_web_heatmap</span><span class="op">(</span><span class="va">web</span>, binarize <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot_web_heatmap</span><span class="op">(</span><span class="va">web</span>, zero.na <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_web_heatmap-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"><span><span class="fu">plot_web_heatmap</span><span class="op">(</span><span class="va">web</span>, binarize <span class="op">=</span> <span class="cn">TRUE</span>, sort <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">plot_web_heatmap</span><span class="op">(</span><span class="va">web</span>, sort <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="plot_web_heatmap-3.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span><span class="fu">plot_web_heatmap</span><span class="op">(</span><span class="va">web</span>, binarize <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
+<span class="r-plt img"><img src="plot_web_heatmap-4.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
