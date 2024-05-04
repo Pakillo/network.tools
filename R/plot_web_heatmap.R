@@ -83,7 +83,7 @@ plot_web_heatmap <- function(df,
     labs(x = animal.var, y = plant.var, fill = int.var)
 
   if (isTRUE(binarize)) {
-    gg <- gg + scale_fill_manual(values = c("grey30", "grey99")) +
+    gg <- gg + scale_fill_manual(values = c("grey99", "grey30")) +
       theme(legend.position = "none")
   }
 
