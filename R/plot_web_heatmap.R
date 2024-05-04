@@ -6,7 +6,7 @@
 #' @param int.var character. Name of the column representing interaction presence
 #' or frequency.
 #' @param binarize Logical. Discretize int.var into two categories? (Default is FALSE).
-#' @param sort Logical. If TRUE (the default), sort rows and columns by
+#' @param sort Logical. If TRUE, sort rows and columns by
 #' prevalence to show nestedness.
 #'
 #' @return A ggplot object.
@@ -83,12 +83,10 @@ plot_web_heatmap <- function(df,
     labs(x = animal.var, y = plant.var, fill = int.var)
 
   if (isTRUE(binarize)) {
-    gg <- gg + scale_fill_manual(values = c("grey99", "grey30")) +
+    gg <- gg + scale_fill_manual(values = c("grey30", "grey99")) +
       theme(legend.position = "none")
   }
 
-
-  print(gg)
-  invisible(gg)
+  gg + coord_equal()
 
 }

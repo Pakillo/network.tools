@@ -25,7 +25,7 @@ or frequency.}
 
 \item{binarize}{Logical. Discretize int.var into two categories? (Default is FALSE).}
 
-\item{sort}{Logical. If TRUE (the default), sort rows and columns by
+\item{sort}{Logical. If TRUE, sort rows and columns by
 prevalence to show nestedness.}
 }
 \value{
