@@ -2,8 +2,8 @@
 
 set.seed(4)
 
-np <- 8
-na <- 12
+np <- 4
+na <- 8
 
 web <- data.frame(
   Plant = rep(paste0("P", 1:np), each = na),
