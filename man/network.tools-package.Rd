@@ -12,6 +12,7 @@ Tools to analyse and visualise bipartite networks.
 Useful links:
 \itemize{
   \item \url{https://github.com/Pakillo/network.tools}
+  \item \url{https://pakillo.github.io/network.tools/}
   \item Report bugs at \url{https://github.com/Pakillo/network.tools/issues}
 }
 
