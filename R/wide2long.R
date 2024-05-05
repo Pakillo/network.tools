@@ -16,6 +16,11 @@
 wide2long <- function(mat = NULL,
                       int.name = "Visits") {
 
+  if (is.null(rownames(mat))) {
+    warning("mat lacks row names. Generating automatic row names like P1, P2, ...")
+    rownames(mat) <- paste0("P", 1:nrow(mat))
+  }
+
   mat.df <- as.data.frame(mat)
   mat.df[, ncol(mat.df) + 1] <- rownames(mat)
   names(mat.df)[ncol(mat.df)] <- "Plant"
