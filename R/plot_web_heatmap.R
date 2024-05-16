@@ -93,7 +93,7 @@ plot_web_heatmap <- function(df,
   gg <- ggplot(df, aes(x = df[[animal.var]], y = df[[plant.var]])) +
     geom_tile(aes(x = df[[animal.var]], fill = df[[int.var]])) +
     # scale_fill_viridis() +
-    theme(axis.text.x = element_text(angle = 90),
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5),
           axis.text = element_text(size = 8)) +
     labs(x = animal.var, y = plant.var, fill = int.var)
 
