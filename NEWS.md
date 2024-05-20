@@ -1,3 +1,7 @@
+# network.tools 0.0.4
+
+* Add functions to calculate niche width and individual specialisation indices.
+
 # network.tools 0.0.3
 
 * Horizontal centering of animal names in plot_web_heatmap.
