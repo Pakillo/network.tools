@@ -1,16 +1,20 @@
 
 
-#' Individual specialisation
+#' Niche width and individual specialisation indices
 #'
-#' Calculate indices of individual specialisation,
+#' Calculate indices of niche width and individual specialisation,
 #' following Bolnick et al. 2002
-#' \doi{doi:10.1890/0012-9658(2002)083[2936:MILRS]2.0.CO;2}.
+#' (\doi{doi:10.1890/0012-9658(2002)083[2936:MILRS]2.0.CO;2}).
+#'
+#'
 #' `TNW` calculates the Total Niche Width of the population, using Shannon diversity.
+#'
 #' `WIC` calculates the Within-Individual Component of niche width
 #' as a weighted average of individuals' Shannon diversity
 #' (i.e. the Shannon diversity value of each individual plant is weighted by
 #' the proportion of visits or interactions received by that plant).
 #' `WIC` can also return the individual Shannon diversity values, if `indiv = TRUE`.
+#'
 #' `indiv_spec` returns a list with the following components:
 #' - WIC (Within-Individual Component),
 #' - Shannon (individual Shannon diversity values),
