@@ -9,7 +9,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "60%"
 )
 ```
 
@@ -39,7 +39,9 @@ devtools::install_github("Pakillo/network.tools")
 library(network.tools)
 ```
 
-### Visualise bipartite network as heatmap
+### Network visualisation
+
+#### Visualise bipartite network as heatmap
 
 ```{r }
 data(web)
@@ -55,21 +57,46 @@ plot_web_heatmap(web, binarize = TRUE)
 The output is a ggplot object that can be further modified:
 
 ```{r}
-plot_web_heatmap(web) + viridis::scale_fill_viridis()
+plot_web_heatmap(web) + 
+  ggplot2::labs(title = "A bipartite network")
 ```
 
 
-### Transform interaction data from long to wide format
+### Data management
+
+#### Transform interaction data from long to wide format
 
 ```{r}
+head(web)
 long2wide(web)
 ```
 
 
-### Transform interaction data from wide to long format
+#### Transform interaction data from wide to long format
 
 ```{r}
 mat <- long2wide(web)
 wide2long(mat)
+```
+
+
+### Individual specialisation indices
+
+Calculate indices of niche width and individual specialisation following [Bolnick et al. 2002](https://doi.org/10.1890/0012-9658(2002)083[2936:MILRS]2.0.CO;2).
+
+```{r}
+data(web)
+net <- long2wide(web)
+net
+indiv_spec(net)
+```
+
+
+See the package [website](https://pakillo.github.io/network.tools) for more information.
+
+## Citation
+
+```{r warning=FALSE, comment=NA}
+citation("network.tools")
 ```
 

@@ -1,6 +1,6 @@
 Package: network.tools
 Title: Tools to Analyse and Visualise Bipartite Networks
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: 
     person("Francisco", "Rodriguez-Sanchez", , "f.rodriguez.sanc@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7981-1599"))

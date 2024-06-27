@@ -1,3 +1,7 @@
+# network.tools 0.0.5
+
+* `indiv_spec` now returns a dataframe with WIC, TNW and WIC/TNW columns. To obtain individual Shannon diversity values, use `WIC(net, indiv = TRUE)`.
+
 # network.tools 0.0.4
 
 * Add functions to calculate niche width and individual specialisation indices.

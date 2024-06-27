@@ -17,10 +17,9 @@ test_that("Individual specialisation values are correct", {
   expect_equal(suppressWarnings(WIC(net)), c(WIC = 0))
   expect_equal(suppressWarnings(WIC(net, indiv = TRUE)), c(0, 0))
   expect_equal(suppressWarnings(indiv_spec(net)),
-               list(WIC = c(WIC = 0),
-                    Shannon = c(0, 0),
-                    TNW = c(TNW = 0.693147180559945),
-                    IndSpec = c(`WIC/TNW` = 0)))
+               data.frame(WIC = 0,
+                    TNW = 0.693147180559945,
+                    IndSpec = 0))
 })
 
 
@@ -33,10 +32,9 @@ test_that("Individual specialisation values are correct", {
   expect_equal(suppressWarnings(WIC(net)), c(WIC = 0))
   expect_equal(suppressWarnings(WIC(net, indiv = TRUE)), c(0, 0))
   expect_equal(suppressWarnings(indiv_spec(net)),
-               list(WIC = c(WIC = 0),
-                    Shannon = c(0, 0),
-                    TNW = c(TNW = 0),
-                    IndSpec = c(`WIC/TNW` = NaN)))
+               data.frame(WIC = 0,
+                          TNW = 0,
+                          IndSpec = NaN))
 })
 
 
@@ -49,10 +47,9 @@ test_that("Individual specialisation values are correct", {
   expect_equal(suppressWarnings(WIC(net)), c(WIC = 0.693147180559945))
   expect_equal(suppressWarnings(WIC(net, indiv = TRUE)), c(0, 0.693147180559945))
   expect_equal(suppressWarnings(indiv_spec(net)),
-               list(WIC = c(WIC = 0.693147180559945),
-                    Shannon = c(0, 0.693147180559945),
-                    TNW = c(TNW = 0.693147180559945),
-                    IndSpec = c(`WIC/TNW` = 1)))
+               data.frame(WIC = 0.693147180559945,
+                    TNW = 0.693147180559945,
+                    IndSpec = 1))
 })
 
 
@@ -72,10 +69,9 @@ test_that("Individual specialisation values are correct", {
   expect_equal(suppressWarnings(WIC(net, indiv = TRUE)),
                c(0.636514168294813, 0.796311640173813, 0))
   expect_equal(suppressWarnings(indiv_spec(net)),
-               list(WIC = c(WIC = 0.748372398610113),
-                    Shannon = c(0.636514168294813, 0.796311640173813, 0),
-                    TNW = c(TNW = 0.801818552543337),
-                    IndSpec = c(`WIC/TNW` = 0.933343829768349)))
+               data.frame(WIC = 0.748372398610113,
+                    TNW = 0.801818552543337,
+                    IndSpec = 0.933343829768349))
 
 })
 

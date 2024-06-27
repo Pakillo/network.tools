@@ -23,14 +23,14 @@ weighted by the proportion of interactions represented by each plant
 (i.e. the WIC).}
 }
 \value{
-A numeric value, vector, or list, depending on the function
+A numeric value or vector for \code{WIC} and \code{TNW},
+a data.frame in the case of \code{indiv_spec}
 }
 \description{
 Calculate indices of niche width and individual specialisation,
 following Bolnick et al. 2002
 (\doi{doi:10.1890/0012-9658(2002)083[2936:MILRS]2.0.CO;2}).
-}
-\details{
+
 \code{TNW} calculates the Total Niche Width of the population, using Shannon diversity.
 
 \code{WIC} calculates the Within-Individual Component of niche width
@@ -39,11 +39,10 @@ as a weighted average of individuals' Shannon diversity
 the proportion of visits or interactions received by that plant).
 \code{WIC} can also return the individual Shannon diversity values, if \code{indiv = TRUE}.
 
-\code{indiv_spec} returns a list with the following components:
+\code{indiv_spec} returns a data.frame with the following columns:
 \itemize{
-\item WIC (Within-Individual Component),
-\item Shannon (individual Shannon diversity values),
-\item TNW (Total Niche Width), and
+\item WIC (Within-Individual Component)
+\item TNW (Total Niche Width)
 \item IndSpec (Individual Specialisation index, calculated as the ratio WIC / TNW).
 }
 }

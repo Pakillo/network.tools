@@ -2,10 +2,9 @@
 
 #' Niche width and individual specialisation indices
 #'
-#' Calculate indices of niche width and individual specialisation,
+#' @description Calculate indices of niche width and individual specialisation,
 #' following Bolnick et al. 2002
 #' (\doi{doi:10.1890/0012-9658(2002)083[2936:MILRS]2.0.CO;2}).
-#'
 #'
 #' `TNW` calculates the Total Niche Width of the population, using Shannon diversity.
 #'
@@ -15,10 +14,9 @@
 #' the proportion of visits or interactions received by that plant).
 #' `WIC` can also return the individual Shannon diversity values, if `indiv = TRUE`.
 #'
-#' `indiv_spec` returns a list with the following components:
-#' - WIC (Within-Individual Component),
-#' - Shannon (individual Shannon diversity values),
-#' - TNW (Total Niche Width), and
+#' `indiv_spec` returns a data.frame with the following columns:
+#' - WIC (Within-Individual Component)
+#' - TNW (Total Niche Width)
 #' - IndSpec (Individual Specialisation index, calculated as the ratio WIC / TNW).
 #'
 #'
@@ -26,7 +24,8 @@
 #' Plants in rows, Animals in columns. Numbers need not be integers (i.e. counts),
 #' can be relative abundances or interaction frequencies.
 #'
-#' @return A numeric value, vector, or list, depending on the function
+#' @return A numeric value or vector for `WIC` and `TNW`,
+#' a data.frame in the case of `indiv_spec`
 #' @note Ideally `net` should not contain missing data (NA). If present, they will
 #' be ignored.
 #' @export
@@ -46,11 +45,9 @@
 indiv_spec <- function(net) {
 
   wic <- WIC(net, indiv = FALSE)
-  wic.indiv <- WIC(net, indiv = TRUE)
   tnw <- TNW(net)
   indspec <- wic / tnw
-  names(indspec) <- "WIC/TNW"
-  list(WIC = wic, Shannon = wic.indiv, TNW = tnw, IndSpec = indspec)
+  data.frame(WIC = wic, TNW = tnw, IndSpec = indspec, row.names = NULL)
 
 }
 
