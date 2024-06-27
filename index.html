@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="index.html">network.tools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.5</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,27 +80,42 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Pakillo/network.tools" class="external-link">network.tools</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
-<h3 id="visualise-bipartite-network-as-heatmap">Visualise bipartite network as heatmap<a class="anchor" aria-label="anchor" href="#visualise-bipartite-network-as-heatmap"></a>
+<h3 id="network-visualisation">Network visualisation<a class="anchor" aria-label="anchor" href="#network-visualisation"></a>
 </h3>
+<div class="section level4">
+<h4 id="visualise-bipartite-network-as-heatmap">Visualise bipartite network as heatmap<a class="anchor" aria-label="anchor" href="#visualise-bipartite-network-as-heatmap"></a>
+</h4>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/plot_web_heatmap.html">plot_web_heatmap</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="60%"></p>
 <p>Binarize the network (make it qualitative):</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/plot_web_heatmap.html">plot_web_heatmap</a></span><span class="op">(</span><span class="va">web</span>, binarize <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="60%"></p>
 <p>The output is a ggplot object that can be further modified:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/plot_web_heatmap.html">plot_web_heatmap</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span> <span class="op">+</span> <span class="fu">viridis</span><span class="fu">::</span><span class="fu">scale_fill_viridis</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Scale for fill is already present.</span></span>
-<span><span class="co">#&gt; Adding another scale for fill, which will replace the existing scale.</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/plot_web_heatmap.html">plot_web_heatmap</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"A bipartite network"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="60%"></p>
+</div>
 </div>
 <div class="section level3">
-<h3 id="transform-interaction-data-from-long-to-wide-format">Transform interaction data from long to wide format<a class="anchor" aria-label="anchor" href="#transform-interaction-data-from-long-to-wide-format"></a>
+<h3 id="data-management">Data management<a class="anchor" aria-label="anchor" href="#data-management"></a>
 </h3>
+<div class="section level4">
+<h4 id="transform-interaction-data-from-long-to-wide-format">Transform interaction data from long to wide format<a class="anchor" aria-label="anchor" href="#transform-interaction-data-from-long-to-wide-format"></a>
+</h4>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Plant Animal Visits</span></span>
+<span><span class="co">#&gt; 1    P1     A1      1</span></span>
+<span><span class="co">#&gt; 2    P1     A2      0</span></span>
+<span><span class="co">#&gt; 3    P1     A3      0</span></span>
+<span><span class="co">#&gt; 4    P1     A4      0</span></span>
+<span><span class="co">#&gt; 5    P1     A5      2</span></span>
+<span><span class="co">#&gt; 6    P1     A6      0</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/long2wide.html">long2wide</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    A6 A1 A3 A4 A5 A7 A8 A2</span></span>
 <span><span class="co">#&gt; P3  5  3  3  2  1  1  1  1</span></span>
@@ -108,10 +123,10 @@
 <span><span class="co">#&gt; P4  1  1  1  2  1  1  0  2</span></span>
 <span><span class="co">#&gt; P1  0  1  0  0  2  1  2  0</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="transform-interaction-data-from-wide-to-long-format">Transform interaction data from wide to long format<a class="anchor" aria-label="anchor" href="#transform-interaction-data-from-wide-to-long-format"></a>
-</h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="section level4">
+<h4 id="transform-interaction-data-from-wide-to-long-format">Transform interaction data from wide to long format<a class="anchor" aria-label="anchor" href="#transform-interaction-data-from-wide-to-long-format"></a>
+</h4>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mat</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/long2wide.html">long2wide</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/wide2long.html">wide2long</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 32 × 3</span></span>
@@ -129,6 +144,46 @@
 <span><span class="co">#&gt; 10 P2    A1          3</span></span>
 <span><span class="co">#&gt; # ℹ 22 more rows</span></span></code></pre></div>
 </div>
+</div>
+<div class="section level3">
+<h3 id="individual-specialisation-indices">Individual specialisation indices<a class="anchor" aria-label="anchor" href="#individual-specialisation-indices"></a>
+</h3>
+<p>Calculate indices of niche width and individual specialisation following <a href="https://doi.org/10.1890/0012-9658(2002)083%5B2936:MILRS%5D2.0.CO;2" class="external-link">Bolnick et al. 2002</a>.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span>
+<span><span class="va">net</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/long2wide.html">long2wide</a></span><span class="op">(</span><span class="va">web</span><span class="op">)</span></span>
+<span><span class="va">net</span></span>
+<span><span class="co">#&gt;    A6 A1 A3 A4 A5 A7 A8 A2</span></span>
+<span><span class="co">#&gt; P3  5  3  3  2  1  1  1  1</span></span>
+<span><span class="co">#&gt; P2  3  3  2  0  0  1  1  0</span></span>
+<span><span class="co">#&gt; P4  1  1  1  2  1  1  0  2</span></span>
+<span><span class="co">#&gt; P1  0  1  0  0  2  1  2  0</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/indiv_spec.html">indiv_spec</a></span><span class="op">(</span><span class="va">net</span><span class="op">)</span></span>
+<span><span class="co">#&gt;       WIC      TNW   IndSpec</span></span>
+<span><span class="co">#&gt; 1 1.71828 2.008202 0.8556311</span></span></code></pre></div>
+<p>See the package <a href="https://pakillo.github.io/network.tools">website</a> for more information.</p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"network.tools"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>To cite package <span class="st">'network.tools'</span> <span class="cf">in</span> publications use<span class="sc">:</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  Rodriguez<span class="sc">-</span>Sanchez <span class="fu">F</span> (????). _network.tools<span class="sc">:</span> Tools to Analyse and</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  Visualise Bipartite Networks_. R package version <span class="dv">0</span>.<span class="fl">0.5</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>  https<span class="sc">:</span><span class="er">//</span>pakillo.github.io<span class="sc">/</span>network.tools<span class="sc">/</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>  <span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>Pakillo<span class="sc">/</span>network.tools<span class="sc">&gt;</span>.</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>A BibTeX entry <span class="cf">for</span> LaTeX users is</span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a>  <span class="sc">@</span>Manual{,</span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>    title <span class="ot">=</span> {network.tools<span class="sc">:</span> Tools to Analyse and Visualise Bipartite Networks},</span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>    author <span class="ot">=</span> {Francisco Rodriguez<span class="sc">-</span>Sanchez},</span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a>    note <span class="ot">=</span> {R package version <span class="dv">0</span>.<span class="fl">0.5</span>, https<span class="sc">:</span><span class="er">//</span>pakillo.github.io<span class="sc">/</span>network.tools<span class="sc">/</span>},</span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>    url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>github.com<span class="sc">/</span>Pakillo<span class="sc">/</span>network.tools},</span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a>  }</span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
