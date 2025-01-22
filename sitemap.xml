@@ -1,48 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://pakillo.github.io/network.tools/404.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/drop_empty_cols.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/drop_empty_rows.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/expand_unobs.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/indiv_spec.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/long2wide.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/network.tools-package.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/plot_web_heatmap.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/web.html</loc>
-  </url>
-  <url>
-    <loc>https://pakillo.github.io/network.tools/reference/wide2long.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://pakillo.github.io/network.tools/404.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/LICENSE.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/authors.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/index.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/news/index.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/drop_empty_cols.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/drop_empty_rows.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/expand_unobs.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/index.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/indiv_spec.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/long2wide.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/network.tools-package.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/plot_web_heatmap.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/web.html</loc></url>
+<url><loc>https://pakillo.github.io/network.tools/reference/wide2long.html</loc></url>
 </urlset>
+
