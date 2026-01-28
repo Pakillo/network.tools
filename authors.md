@@ -10,14 +10,14 @@
 Source:
 [`DESCRIPTION`](https://github.com/Pakillo/network.tools/blob/master/DESCRIPTION)
 
-Rodriguez-Sanchez F (2025). *network.tools: Tools to Analyse and
+Rodriguez-Sanchez F (2026). *network.tools: Tools to Analyse and
 Visualise Bipartite Networks*. R package version 0.0.5,
 <https://github.com/Pakillo/network.tools>.
 
     @Manual{,
       title = {network.tools: Tools to Analyse and Visualise Bipartite Networks},
       author = {Francisco Rodriguez-Sanchez},
-      year = {2025},
+      year = {2026},
       note = {R package version 0.0.5},
       url = {https://github.com/Pakillo/network.tools},
     }

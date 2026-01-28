@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-12-16T11:35Z
+last_built: 2026-01-28T17:53Z
 urls:
   reference: https://pakillo.github.io/network.tools/reference
   article: https://pakillo.github.io/network.tools/articles
