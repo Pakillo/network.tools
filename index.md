@@ -8,6 +8,7 @@ You can install the development version of network.tools from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("Pakillo/network.tools")
 ```
@@ -15,6 +16,7 @@ devtools::install_github("Pakillo/network.tools")
 ## Usage
 
 ``` r
+
 library(network.tools)
 ```
 
@@ -23,6 +25,7 @@ library(network.tools)
 #### Visualise bipartite network as heatmap
 
 ``` r
+
 data(web)
 plot_web_heatmap(web)
 ```
@@ -32,6 +35,7 @@ plot_web_heatmap(web)
 Binarize the network (make it qualitative):
 
 ``` r
+
 plot_web_heatmap(web, binarize = TRUE)
 ```
 
@@ -40,6 +44,7 @@ plot_web_heatmap(web, binarize = TRUE)
 The output is a ggplot object that can be further modified:
 
 ``` r
+
 plot_web_heatmap(web) + 
   ggplot2::labs(title = "A bipartite network")
 ```
@@ -51,6 +56,7 @@ plot_web_heatmap(web) +
 #### Transform interaction data from long to wide format
 
 ``` r
+
 head(web)
 #>   Plant Animal Visits
 #> 1    P1     A1      1
@@ -62,6 +68,7 @@ head(web)
 ```
 
 ``` r
+
 long2wide(web)
 #>    A6 A1 A3 A4 A5 A7 A8 A2
 #> P3  5  3  3  2  1  1  1  1
@@ -73,6 +80,7 @@ long2wide(web)
 #### Transform interaction data from wide to long format
 
 ``` r
+
 mat <- long2wide(web)
 wide2long(mat)
 #> # A tibble: 32 × 3
@@ -98,6 +106,7 @@ Calculate indices of niche width and individual specialisation following
 al. 2002](https://doi.org/10.1890/0012-9658(2002)083%5B2936:MILRS%5D2.0.CO;2).
 
 ``` r
+
 data(web)
 net <- long2wide(web)
 net
@@ -109,6 +118,7 @@ net
 ```
 
 ``` r
+
 indiv_spec(net)
 #>       WIC      TNW   IndSpec
 #> 1 1.71828 2.008202 0.8556311
